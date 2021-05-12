@@ -33,12 +33,7 @@ export default function VideoPlayer() {
         userVideo,
         stream,
         name,
-        setName,
-        callEnded,
-        me,
-        callUser,
-        leaveCall,
-        answerCall } = useContext(SocketContext)
+        callEnded } = useContext(SocketContext)
 
     const classes = useStyles();
     return (
