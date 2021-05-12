@@ -25,14 +25,14 @@ io.on('connection', (socket) => {
     })
 
     socket.on('callUser', ({ userToCall, signalData, from, name }) => {
-        io.to(userToCall).emit('call user', { signal: signalData, from, name })
+        io.to(userToCall).emit('callUser', { signal: signalData, from, name })
     })
 
     socket.on('answerCall', (data) => {
-        io.to(data.to).emit('callAccepted', data)
+        io.to(data.to).emit('callAccepted', data.signal)
     })
 })
 
-server.listen(PORT, '127.0.0.1', function () {
+server.listen(PORT, function () {
     console.log(`server listening on port ${PORT}`)
 })
